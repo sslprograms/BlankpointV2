@@ -1,0 +1,365 @@
+* {
+    scroll-behavior: smooth;
+    margin: 0;
+}
+
+html {
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+    height: 10px;
+    width: 2px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 5px;
+    height: 2px;
+    width: 2px;
+}
+
+.background {
+    background-color: rgb(0, 0, 0);
+}
+
+.footer {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    color: white;
+    background-color: rgb(23, 23, 23);
+    padding: 10px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    flex: 1;
+    padding: 10px;
+    background-color: rgb(45, 45, 45);
+    background-image: linear-gradient( 112.1deg,  rgba(32,38,57,1) 11.4%, rgba(63,76,119,1) 70.2% );
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: overlay;
+}
+
+.logo {
+    display:flex; align-items: center;
+}
+
+a {
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none;
+}
+
+.playc {
+    display: flex;
+    padding: 10px;
+    align-content: center;
+    justify-content: center;
+}
+
+.btn {
+    display: flex;
+    flex: 1;
+    background-color: white;
+    border-width: 0;
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 15px;
+    outline-width: 0;
+    align-content: center;
+    justify-content: center;
+    cursor: pointer;
+    animation-name: btn-out;
+    animation-fill-mode: forwards;
+    animation-duration: 0.6s;
+}
+
+
+.self-buttons {
+    display: flex;
+    padding-top: 10px;
+    flex: 1;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.inp {
+    display: flex;
+    flex: 1;
+    background-color: white;
+    border-width: 0;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 15px;
+    outline-width: 0;
+    font-family: 'Raleway', sans-serif;
+}
+
+.warning {
+    display: flex;
+    flex: 1;
+    padding: 5px;
+    font-size: 20px;
+    background-color: orange;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+
+.btn:hover {
+    animation-name: btn-in;
+    animation-fill-mode: forwards;
+    animation-duration: 0.6s;
+}
+
+@keyframes btn-in {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes btn-out {
+    from {
+        transform: scale(1.05);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+
+.nav-links {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    flex-direction: row;
+    color: white;
+    font-size: 20px;
+    gap: 10px;
+    padding: 15px;
+}
+
+.profile-contain {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    flex: 1;
+    padding-top: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-family: 'Raleway', sans-serif;
+}
+
+.client-details {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    border-width: 2px;
+    border-style: solid;
+    border-color: white;
+    background-image: linear-gradient( 112.1deg,  rgba(32,38,57,1) 11.4%, rgba(63,76,119,1) 70.2% );
+    padding-right: 4%;
+    padding-left: 4%;
+    border-radius: 25px;
+}
+
+.details {
+    display: flex;
+    padding: 4%;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.pfp {
+    cursor: pointer;
+}
+
+
+
+.list-friends {
+    display: flex;
+    flex: 1;
+    padding: 5px;
+    background-color: rgb(22, 22, 22);
+    border-radius: 20px;
+    gap: 5px;
+    flex-direction: row;
+    overflow-x: auto;
+    animation-name: colorloop;
+    animation-duration: 1s;
+}
+
+
+.user {
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    justify-content: center;
+    font-weight: bold;
+
+}
+
+
+.game-div {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    flex: 1;
+    max-width: 250px;
+    max-height: 150px;
+    min-width: 250px;
+    min-height: 150px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: rgb(44, 44, 44);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: overlay;
+    color: white;
+    overflow: hidden;
+    font-size: 20px;
+    font-family: 'Raleway', sans-serif;
+    animation-name: btn-out;
+    animation-fill-mode: forwards;
+    animation-duration: 0.6s;
+}
+
+.game-btns {
+    position: absolute;
+    display: flex;
+    align-content: flex-end;
+    justify-content: flex-end;
+    height: 90%;
+    justify-self: flex-end;
+}
+
+.suggested-contain {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 2%;
+    padding-left: 10%;
+    padding-right: 10%;    
+    color: white;
+    font-size: 20px;
+    gap: 10px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.suggested-games {
+    display: flex;
+    flex: 1;
+    gap: 15px;
+    /* max-width: min-content; */
+    scroll-behavior: smooth;
+    flex-direction: row;
+    align-content: flex-start;
+    justify-content: flex-start;
+    padding-top: 5px;
+    padding: 5px;
+    padding-bottom: 10px;
+    overflow-x:scroll;
+}
+
+.nav-buttons {
+    display: none;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    gap: 2px;
+}
+
+.btn1 {
+    display: flex;
+    flex: 1;
+    cursor: pointer;
+    padding: 10px;
+    min-width: 100%;
+    border-width: 2px;
+    border-color: rgb(79, 79, 79);
+    border-style:groove;
+    color: white;
+    outline-width: 0;
+    background-color: rgb(18, 18, 18);
+    font-size: 20px;
+    align-content: center;
+    justify-content: center;
+}
+
+.btn1:hover {
+    animation-name: btn1white;
+    animation-duration: 0.8s;
+}
+
+@keyframes btn1white {
+    100% {background-color: white; color: rgb(34, 34, 34);}
+}
+
+@media (max-width: 714px) {
+
+    .nav-buttons {
+        display: flex;
+    }
+
+    .pfp {
+        display: none;
+    }
+
+    .suggested-games{
+        align-content: center;
+        justify-content: center;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
+
+.game-div:hover {
+    animation-name: btn-in;
+    animation-fill-mode: forwards;
+    animation-duration: 0.6s;
+}
+
+@keyframes btn-in {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes btn-out {
+    from {
+        transform: scale(1.05);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}

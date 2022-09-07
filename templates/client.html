@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ game['name'] }}</title>
+        <link rel="shortcut icon" href="{{ game['img'] }}" type="image/x-icon">
+        <link rel="stylesheet" href="/static/client.css">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+        <script src="/static/client.js"></script>
+        <script>sessionStorage.setItem('x-csrf-token', '{{ csrf }}')</script>
+        <script>sessionStorage.setItem('a', '{{ a }}')</script>
+        <script>sessionStorage.setItem('b', '{{ b }}')</script>
+        <script>joinGame('{{ game["id"] }}')</script>
+
+    </head>
+    <body class="background">
+
+        <iframe class="client-g" src="{{ game['src'] }}" frameborder="0"></iframe>
+        <div class="data">
+            <h1>@{{ account['username'] }}</h1>
+            <p>Playing: {{ game['players']|length }}</p>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>/Blankpoint/discover</title>
+        <link rel="stylesheet" href="/static/discover.css">
+        <link rel="shortcut icon" href="/static/blankpointV2.jpg" type="image/x-icon">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+        <script src="/static/home.js"></script>
+        <script>sessionStorage.setItem('x-csrf-token', '{{ csrf }}')</script>
+        <script>sessionStorage.setItem('a', '{{ a }}')</script>
+        <script>sessionStorage.setItem('b', '{{ b }}')</script>
+        <script>presence()</script>
+        <script data-cfasync="false" src="//d2y8ttytgze7qt.cloudfront.net/?yttyd=966056"></script>
+    </head>
+    <body class="background">
+        <div style="background-color: rgb(255, 81, 50);" class="warning">
+            <p>POP-UP ADS MAY COME UP WHEN YOU PLAY A GAME!!!!</p>
+        </div>
+        <div class="warning">
+            <p>Blankpoint V2 is currently still being worked on, Join the <a style="font-weight: bold; text-decoration: underline; text-underline-offset: 2px;" href="https://discord.gg/nNdHKdH33J">DISCORD</a> to stay updated :(</p>
+        </div>
+        
+
+        <div class="navbar">
+
+            <div class="logo">
+                <img onclick="window.location.replace('/')" style="cursor:pointer; max-width: 50px; border-radius: 10px;" src="/static/blankpointV2.jpg" alt="">
+            </div>
+
+            <div class="nav-links">
+                <!-- <a href="/home">home</a> -->
+                <a href="/discover">discover</a>
+                <!-- <a href="/profile">profile</a>
+                <a href="/messages">messages</a> -->
+                <a href="/v2/logout">logout</a>
+            </div>
+            <div class="user">
+                <p>@{{ account['username'] }}</p>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <button class="btn1">discover</button>
+            <button class="btn1">profile</button>
+            <button class="btn1">messages</button>
+            <button class="btn1">logout</button>
+        </div>
+
+        {% if popular|length != 0 %}
+            <div class="suggested-contain">
+                <h2>Popular</h2>
+                <div class="suggested-games">
+                    {% for x in popular %}
+                    
+                        <div style="background-image: url({{ x['img'] }});" class="game-div">
+                            <h2>{{ x['name'] }}</h2>
+                            <p>{{ x['players']|length }} Playing</p>
+                            <div class="game-btns">
+                                <i name="gameIdfav_{{ x['id'] }}" onclick="favorite({{ x['id'] }})" id="fav" class="fi fi-rr-star"></i>
+                                <script>checkIfFavorited('{{ x['id'] }}')</script>
+                            </div>
+                            <div class="playc">
+                                <button onclick="playGame('{{ x['id'] }}')" class="btn">Play</button>
+                            </div>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>       
+
+            </div>
+        {% endif %}
+
+
+        {% if friends_playing|length != 0 %}
+            <div class="suggested-contain">
+                <h2>Friends Playing</h2>
+                <div class="suggested-games">
+                    {% for x in friends_playing %}
+                    
+                        <div style="background-image: url({{ x['img'] }});" class="game-div">
+                            <h2>{{ x['name'] }}</h2>
+                            <p>{{ x['players']|length }} Playing</p>
+                            <div class="game-btns">
+                                <i name="gameIdfav_{{ x['id'] }}" onclick="favorite({{ x['id'] }})" id="fav" class="fi fi-rr-star"></i>
+                                <script>checkIfFavorited('{{ x['id'] }}')</script>
+                            </div>
+                            <div class="playc">
+                                <button onclick="playGame('{{ x['id'] }}')" class="btn">Play</button>
+                            </div>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>       
+
+            </div>
+        {% endif %}
+
+
+        {% if new_games|length != 0 %}
+            <div class="suggested-contain">
+                <h2>New</h2>
+                <div class="suggested-games">
+                    {% for x in new_games %}
+                    
+                        <div style="background-image: url({{ x['img'] }});" class="game-div">
+                            <h2>{{ x['name'] }}</h2>
+                            <p>{{ x['players']|length }} Playing</p>
+                            <div class="game-btns">
+                                <i name="gameIdfav_{{ x['id'] }}" onclick="favorite({{ x['id'] }})" id="fav" class="fi fi-rr-star"></i>
+                                <script>checkIfFavorited('{{ x['id'] }}')</script>
+                            </div>
+                            <div class="playc">
+                                <button onclick="playGame('{{ x['id'] }}')" class="btn">Play</button>
+                            </div>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>       
+
+            </div>
+        {% endif %}
+
+        {% if suggested|length != 0 %}
+            <div class="suggested-contain">
+                <h2>Suggested</h2>
+                <div class="suggested-games">
+                    {% for x in suggested %}
+                    
+                        <div style="background-image: url({{ x['img'] }});" class="game-div">
+                            <h2>{{ x['name'] }}</h2>
+                            <p>{{ x['players']|length }} Playing</p>
+                            <div class="game-btns">
+                                <i name="gameIdfav_{{ x['id'] }}" onclick="favorite({{ x['id'] }})" id="fav" class="fi fi-rr-star"></i>
+                                <script>checkIfFavorited('{{ x['id'] }}')</script>
+                            </div>
+                            <div class="playc">
+                                <button onclick="playGame('{{ x['id'] }}')" class="btn">Play</button>
+                            </div>
+                            
+                        </div>
+                    
+                    {% endfor %}
+                </div>       
+
+            </div>
+        {% endif %}
+
+
+    </body>
+</html>
+<nav class="footer">
+    <p>© 2022 All Rights are Owned by Blankpoint!</p>
+</nav>

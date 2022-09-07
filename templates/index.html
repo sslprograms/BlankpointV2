@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script hidden="true" src="/static/index.js"></script>
+        <title>/Blankpoint/</title>
+        <link rel="shortcut icon" href="/static/blankpointV2.jpg" type="image/x-icon">
+        <link rel="stylesheet" href="/static/index.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+        <script>sessionStorage.setItem('x-csrf-token', '{{ csrf }}')</script>
+        <script>sessionStorage.setItem('a', '{{ a }}')</script>
+        <script>sessionStorage.setItem('b', '{{ b }}')</script>
+
+    </head>
+    <body class="background">
+
+        <nav class="navbar">
+            <div class="logo">
+                <img style="max-width: 50px; border-radius: 10px;" src="/static/blankpointV2.jpg" alt="">
+            </div>
+            <div class="localpages">
+                <button onclick="document.getElementById('about-data').scrollIntoView();" class="btn1">About</button>
+                <button onclick="document.getElementById('contact').scrollIntoView();" class="btn1">Contact</button>
+            </div>
+        </nav>
+
+        <div class="top">
+
+            <h2>Blankpoint Live</h2>
+            <p>Providing a g@ming experience that can be used anywhere</p>
+
+            <div class="signup">
+                <input type="text" class="inp" placeholder="Username" id="username">
+                <button onclick="window.location.replace('/c?username='+document.getElementById('username').value)" class="btn">>>></button>
+            </div>
+            <div class="login-element">
+                <p>if you have an account already click <a style="color: white;" href="/l">here</a></p>
+            </div>
+
+        </div>
+
+        <div class="about" id="about-data">
+            <div class="staff">
+                <!-- <div class="person">
+                    <img class="pfp" src="/static/coowner.png" alt="">
+                    <h3>Owner</h2>
+                    <p>Free Scripts#3626</p>
+                </div> -->
+
+                <div class="person">
+                    <img class="pfp" src="/static/owner.png" alt="">
+                    <h3>Owner/Developer</h3>
+                    <p>ssl#0631</p>
+                </div>
+
+                <div class="person">
+                    <img class="pfp" src="/static/admin1.png" alt="">
+                    <h3>Head Admin</h2>
+                    <p>Androidy#7953</p>
+                </div>
+
+                <div class="person">
+                    <img class="pfp" src="/static/admin2.png" alt="">
+                    <h3>Head Admin</h2>
+                    <p>Not JJ#0104</p>
+                </div>
+
+                <div class="person">
+                    <img class="pfp" src="/static/admin3.jpg" alt="">
+                    <h3>Admin/mod</h2>
+                    <p>Krispcode#7957</p>
+                </div>
+
+            </div>
+
+            <div class="textabt">
+                <h2>why blankpoint</h2>
+                <p>Currently, blankpoint is the world's top provider of g@mes for schools. Artificial intelligence is identifying g@mes every day and adding them to our website. These g@mes are of the highest caliber. In addition to offering you a huge selection of g@mes, we also provide you access to unblock3d search engines.</p>
+            </div>
+
+        </div>
+
+
+        <div class="contact" id="contact">
+
+            <div class="main-contact">
+
+                <h2>Contact</h2>
+                <p>Blankpoint wants to provide the best experience for everyone.</p>
+
+                <input type="text" placeholder="Your Email" class="inp" id="email">
+                <div class="tex-ar">
+                    <textarea class="inp" id="textarea-txt" placeholder="Please explain in detail about your issue, if you are trying to suggest us games please provide the game url."></textarea>
+                </div>
+                <button id="contact-forum" class="btn" onclick="sendContact()">Submit</button>
+
+                <div class="errorEvent" id="error">
+                    <p>Sorry, try again later to perform this action!</p>
+                </div>
+
+
+            </div>
+
+        </div>
+    </body>
+    <footer class="footer">
+            <p>Blankpoint Live | 2022</p>
+            <div class="ft-d">
+                <a style="color: white;" href="/l">Login</a>
+                <a style="color: white;" href="">Discord</a>
+                <a style="color: white;" href="">Terms of Service</a>
+            </div>
+    </footer>
+</html>

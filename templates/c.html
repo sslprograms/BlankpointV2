@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>/Blankpoint/c</title>
+        <link rel="stylesheet" href="/static/c.css">
+        <link rel="shortcut icon" href="/static/blankpointV2.jpg" type="image/x-icon">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+        <script>sessionStorage.setItem('x-csrf-token', '{{ csrf }}')</script>
+        <script>sessionStorage.setItem('a', '{{ a }}')</script>
+        <script>sessionStorage.setItem('b', '{{ b }}')</script>
+        <script src="/static/c.js"></script>
+        <script src="/static/index.js"></script>
+    </head>
+    <body class="background">
+
+        <nav class="navbar">
+            <div class="logo">
+                <img style="max-width: 50px; border-radius: 10px;" src="/static/blankpointV2.jpg" alt="">
+            </div>
+            <div class="localpages">
+                <button onclick="window.location.replace('/')" class="btn1">About</button>
+                <button onclick="window.location.replace('/')" class="btn1">Contact</button>
+            </div>
+        </nav>
+
+        <div class="ca-container">
+
+            <div class="createa-forum">
+
+                <h2>Create Account</h2>
+                <p>Blankpoint provides an experience that everybody will enjoy!</p>
+
+                <div class="form-content">
+                    <input type="text" class="inp" placeholder="Username" value="{{ username }}" id="username" >
+                    <input type="password" class="inp" placeholder="Password" id="password">
+                    <button onclick="create_account()" class="btn">Create</button>
+                </div>
+
+                <p style="padding-bottom: 5px;">If you already have an account with blankpoint then you can login <a style="color: white; text-underline-offset: 2px;" href="/l">here</a></p>
+                <div class="errorEvent" id="error">
+                    <p>Sorry, try again later to perform this action!</p>
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+</html>
+
+<div class="footer">
+    <p>Blankpoint Live | 2022</p>
+    <div class="ft-d">
+        <a style="color: white;" href="/l">Login</a>
+        <a style="color: white;" href="">Discord</a>
+        <a style="color: white;" href="">Terms of Service</a>
+    </div>
+</div>

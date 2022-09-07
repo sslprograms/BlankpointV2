@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    text-transform: lowercase;
+    scroll-behavior: smooth;
+}
+
+/* html {
+    min-height: 100%;
+} */
+
+.background {
+    background-image: linear-gradient( 112.1deg,  rgba(32,38,57,1) 11.4%, rgba(63,76,119,1) 70.2% );
+    background-repeat: no-repeat;
+    background-color: black;
+}
+
+.navbar {
+    position: sticky;
+    display: flex;
+    flex: 1;
+    background-color: black;
+    padding: 10px;
+    align-content: center;
+    justify-content: center;
+}
+
+.localpages {
+    display: flex;
+    flex: 1;
+    align-content: flex-end;
+    justify-content: flex-end;
+    padding: 10px;
+    gap: 5px;
+}
+
+.btn1 {
+    display: flex;
+    outline-width: 0;
+    border-width: 0;
+    color: white;
+    background-color: transparent;
+    font-size: 20px;
+    align-content: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.footer {
+    display: flex;
+    flex: 1;
+    background-color: black;
+    padding: 2%;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-size: 25px;
+}
+
+.ft-d {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    flex: 1;
+    gap: 9px;
+    text-underline-offset: 2px;
+    font-size: 20px;
+}
+
+.btn1:hover {
+    animation-name: btn1-in;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes btn1-in {
+    from {
+        transform: scale(1);
+        text-decoration: none;
+    }
+
+    to {
+        transform: scale(1.1);
+        text-decoration:underline ;
+        text-underline-offset: 3px;
+    }
+}
+
+.logo {
+    display: flex;
+    flex: 1;
+    align-content: flex-start;
+    justify-content: flex-start;
+    gap: 3px;
+}
+
+.ca-container {
+    display: flex;
+    flex: 1;
+    padding: 10%;
+    color: white;
+    /* align-content: center;
+    justify-content: center; */
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.createa-forum {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    background-color: black;
+    border-radius: 10px;
+    gap: 8px;
+    height: fit-content;
+    width: fit-content;
+}
+
+.btn {
+    display: flex;
+    flex: 1;
+    background-color: white;
+    border-width: 0;
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 15px;
+    outline-width: 0;
+    align-content: center;
+    justify-content: center;
+    cursor: pointer;
+    animation-name: btn-out;
+    animation-fill-mode: forwards;
+    animation-duration: 0.6s;
+}
+
+@keyframes btn-in {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.05);
+    }
+}
+
+.inp {
+    display: flex;
+    flex: 1;
+    background-color: white;
+    border-width: 0;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 15px;
+    outline-width: 0;
+    font-family: 'Raleway', sans-serif;
+}
+
+.form-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+    min-width: 75%;
+}
+
+.errorEvent {
+    display: none;
+    flex: 1;
+    align-content: center;
+    justify-content: center;
+    background-color: rgb(247, 89, 89);
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    min-width: 90%;
+}
+
+.btn:hover {
+    animation-name: btn-in;
+    animation-fill-mode: forwards;
+    animation-duration: 0.6s;
+}
+
+
+@keyframes btn-in {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes btn-out {
+    from {
+        transform: scale(1.05);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
