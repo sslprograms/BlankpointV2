@@ -1,4 +1,4 @@
-api = 'https://catalog.api.gamedistribution.com/api/v2.0/rss/All/?collection=best&categories=All&tags=All&subType=all&type=all&mobile=all&rewarded=all&amount=100&page=1&format=json'
+api = 'https://gamemonetize.com/rssfeed.php?format=json&category=All&type=html5&popularity=bestgames&company=All&amount=250'
 
 
 import requests
@@ -16,7 +16,7 @@ game = requests.get(
 for g in game:
 
     download = requests.get(
-        g['Asset'][1]
+        g['thumb']
     )
 
     for chunk in download.iter_content(chunk_size=None):
@@ -27,12 +27,12 @@ for g in game:
                     k=8
                 )
             ) + '.jpg'
-            open(f'static/{name}', 'wb').write(chunk)
+            open(f'static/game-images/{name}', 'wb').write(chunk)
 
     d = {
-        'name':g['Title'],
-        'img':f'/static/{name}',
-        'src':g['Url'],
+        'name':g['title'],
+        'img':f'/static/game-images/{name}',
+        'src':g['url'],
         'id':len(games)+1
     }
 

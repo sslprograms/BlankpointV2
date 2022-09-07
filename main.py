@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template, redirect, session, url_for, make_response, request
+from flask import Flask, jsonify, render_template, redirect, session, url_for, make_response, request, send_from_directory, send_file
 
 import requests, threading, time, random, string, json
 
@@ -211,6 +211,9 @@ def GENERATE_CSRF_TOKEN():
 
     return token
 
+@app.route('/ads.txt')
+def ads_txt():
+    return send_from_directory('static', 'ads.txt')
 
 @app.route('/')
 def indexPage():

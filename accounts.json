@@ -1,3 +1,36 @@
 [
-
+   {
+      "username": "ssl",
+      "password": "Jakekielb06",
+      "token": "hTVl6Z23tahkt.2K6euH7qCz4YSoN",
+      "friends": [],
+      "friend_requests": [],
+      "followers": [],
+      "following": [],
+      "messages": [],
+      "requests_sent": [],
+      "favorites": [],
+      "badges": [],
+      "recent_games": [
+         {
+            "id": "251"
+         },
+         {
+            "id": "1"
+         },
+         {
+            "id": "100"
+         }
+      ],
+      "admin": false,
+      "addr": "127.0.0.1",
+      "pfp": "/static/unkown.jpg",
+      "status": "Online",
+      "last_seen": "Dashboard",
+      "description": "This is your description, you can change this easily in your settings or profile tab!",
+      "premium": false,
+      "verified_not_robot": false,
+      "email": "",
+      "userId": 1
+   }
 ]
