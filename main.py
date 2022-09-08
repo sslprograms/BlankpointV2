@@ -376,6 +376,8 @@ def homePage():
             friends = getFriends(account)
             favorites = getFavorites(account)
             recents = getRecents(account)
+            recents.reverse()
+            favorites.reverse()
 
             
             return render_template('home.html', csrf=mc['csrf'], client=account, suggested=suggested, recents = recents, favorites=favorites, a=mc['a'], b=mc['b'], friends=friends), 200
@@ -718,7 +720,7 @@ def requestGameJoin():
                 )
 
             
-            account['recent_games'].reverse()
+            # account['recent_games'].reverse()
 
 
             if checkCSRF(request.headers.get('x-csrf-token')) == True:
