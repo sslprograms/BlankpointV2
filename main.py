@@ -384,6 +384,27 @@ def homePage():
 
     return redirect(url_for('indexPage')), 302
 
+@app.route('/settings')
+def settingsPage():
+    for account in accounts:
+        if account['token'] == request.cookies.get('token'):
+
+            csrf = GENERATE_CSRF_TOKEN()
+
+            mc = {
+                'csrf':csrf['token'],
+                'a':csrf['a'],
+                'b':csrf['b']
+            }
+
+            suggested = []
+            for x in range(25):
+                suggested.append(random.choice(games))
+
+            
+            return render_template('settings.html', csrf=mc['csrf'], account=account, suggested=suggested, a=mc['a'], b=mc['b']), 200
+
+    return redirect(url_for('indexPage')), 302
 
 @app.route('/l', methods=['GET'])
 def lPage():

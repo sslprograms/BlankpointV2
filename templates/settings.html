@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>/Blankpoint/discover</title>
+        <link rel="stylesheet" href="/static/settings.css">
+        <link rel="shortcut icon" href="/static/blankpointV2.jpg" type="image/x-icon">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+        <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+        <script src="/static/settings.js"></script>
+        <script>sessionStorage.setItem('x-csrf-token', '{{ csrf }}')</script>
+        <script>sessionStorage.setItem('a', '{{ a }}')</script>
+        <script>sessionStorage.setItem('b', '{{ b }}')</script>
+        <script>presence()</script>
+        <script data-cfasync="false" src="//d2sp5g360gsxjh.cloudfront.net/?ggpsd=966189"></script>
+    </head>
+    <body class="background">
+        <div class="warning">
+            <p>Blankpoint V2 is currently still being worked on, Join the <a style="font-weight: bold; text-decoration: underline; text-underline-offset: 2px;" href="https://discord.gg/nNdHKdH33J">DISCORD</a> to stay updated :(</p>
+        </div>
+        
+
+        <div class="navbar">
+
+            <div class="logo">
+                <img onclick="window.location.replace('/')" style="cursor:pointer; max-width: 50px; border-radius: 10px;" src="/static/blankpointV2.jpg" alt="">
+            </div>
+
+            <div class="nav-links">
+                <!-- <a href="/home">home</a> -->
+                <a href="/discover">discover</a>
+                <!-- <a href="/profile">profile</a>
+                <a href="/messages">messages</a> -->
+                <a href="/v2/logout">logout</a>
+            </div>
+            <div class="user">
+                <p>@{{ account['username'] }}</p>
+            </div>
+        </div>
+
+
+        <div class="settings-container">
+
+            <div class="settings-main">
+
+                <h2>Account Settings</h2>
+                
+                <div class="info">
+                    <div>
+                        <textarea id="description" >{{ account['description'] }}</textarea>
+                    </div>
+                    <img onclick="changePFP()" class="pfp" style="object-fit: cover; clip-path: cir
+                    cle(50%); max-width: 150px; min-width: 150px; max-height: 150px; min-height: 150px;" src="{{ account['pfp'] }}" alt="">
+                    <input class="inp" id="username" type="text" value="{{ account['username'] }}">
+                    <p>Sadly, you cannot change your password in the settings but you can contact support and get a password change!</p>
+                    <button class="btn">Save</button>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </body>
+</html>
+<nav class="footer">
+    <p>© 2022 All Rights are Owned by Blankpoint!</p>
+</nav>
