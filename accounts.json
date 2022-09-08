@@ -9,15 +9,13 @@
       "following": [],
       "messages": [],
       "requests_sent": [],
-      "favorites": [],
-      "badges": [],
-      "recent_games": [
+      "favorites": [
          {
             "id": "172"
-         },
-         {
-            "id": "31"
-         },
+         }
+      ],
+      "badges": [],
+      "recent_games": [
          {
             "id": "214"
          },
@@ -26,6 +24,15 @@
          },
          {
             "id": "214"
+         },
+         {
+            "id": "31"
+         },
+         {
+            "id": "172"
+         },
+         {
+            "id": "87"
          }
       ],
       "admin": false,
