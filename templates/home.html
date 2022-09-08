@@ -43,16 +43,6 @@
                 <p>@{{ client['username'] }}</p>
             </div>
         </div>
-
-
-        <div class="nav-buttons">
-            <button class="btn1">discover</button>
-            <button class="btn1">profile</button>
-            <button class="btn1">messages</button>
-            <button class="btn1">logout</button>
-        </div>
-
-        
         <div class="profile-contain">
             <div class="client-details">
                 <div>
@@ -61,11 +51,10 @@
                 <img onclick="changePFP()" class="pfp" style="object-fit: cover; clip-path: circle(50%); max-width: 150px; min-width: 150px; max-height: 150px; min-height: 150px;" src="{{ client['pfp'] }}" alt="">
                 <div class="details">
                     <h1>Welcome back, @{{client['username']}}!</h1>
-                    <!-- <p>" {{ client['description'] }} "</p> -->
-                    <p>Blankpoint V2 is currently still working on account systems, we wanted a quicker release for you can use unblocked games. Make sure to join our discord listed at the top of the website to stay updated with new links and updates!</p>
+                    <p>" {{ client['description'] }} "</p>
                     <div class="self-buttons">
-                        <!-- <button class="btn">My Profile</button>
-                        <button class="btn">Settings</button> -->
+                        <button class="btn">My Profile</button>
+                        <button class="btn">Settings</button>
                     </div>
                     
                     <!-- {% if friends|length != 0 %}
