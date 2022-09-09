@@ -1510,5 +1510,49 @@
       "img": "/static/game-images/kgSDc9XY.jpg",
       "src": "https://html5.gamemonetize.co/fp3g9mvupanvj81j5blhsg11ruzip3i5/",
       "id": 252
+   },
+
+   {
+      "name":"Crossy Road",
+      "img":"/static/game-images/crossy.jpg",
+      "src":"https://images-docs-opensocial.googleusercontent.com/gadgets/ifr?url=https://sites.google.com/site/s011h5fk/crossy-road.xml",
+      "id":253
+   },
+
+   {
+      "name":"Geometry Dash",
+      "img":"/static/game-images/geodash.png",
+      "src":"https://utopiabeta.tk/gams/gfiles/html5/geometrydash/",
+      "id":254
+   },
+   {
+      "name":"2048",
+      "img":"/static/game-images/2048.png",
+      "src":"https://actuallyphysics.com/assets/games/2048.html",
+      "id":255
+   },
+
+   {
+      "name":"Cookie Clicker",
+      "img":"/static/game-images/cookieclicker.jpg",
+      "src":"https://actuallyphysics.com/assets/games/cookie-clicker-main/index.html",
+      "id":256
+   },
+
+   {
+      "name":"Call of Duty (Remastered)",
+      "img":"/static/game-images/cod.jpg",
+      "src":"https://zayaruzostreetorgan.com/uploads/5/5/6/7/5567194/custom_themes/666344820848380631/call_of_ops_2.html",
+      "id":257
+   
+   },
+
+   {
+      "name":"1v1.lol",
+      "img":"/static/game-images/1v1lol.jpg",
+      "src":"https://docs-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/ko1ov/to@1e8a949f89fcf2b110640c41a0705db01405d161/d7uf4.xml",
+      "id":258
+  
    }
+
 ]
