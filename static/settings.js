@@ -103,8 +103,14 @@ function save() {
     xml.send(data);
 
     xml.onload = function() {
-        if (xml.status == 200) {
-            
+        if (xml.status != 200) {
+            document.getElementById("error").innerText = JSON.parse(xml.response)['message'];
+            document.getElementById("error").style.backgroundColor = 'rgb(247, 89, 89)';
+            document.getElementById("error").style.display = 'flex';
+        } else {
+            document.getElementById("error").innerText = JSON.parse(xml.response)['message'];
+            document.getElementById("error").style.backgroundColor = '#00ff7f';
+            document.getElementById("error").style.display = 'flex';
         }
     }
 }
