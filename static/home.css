@@ -20,11 +20,15 @@ html {
     width: 2px;
 }
 
+
+
 .background {
     background-color: rgb(0, 0, 0);
 }
 
 .footer {
+    position:fixed;
+    bottom: 0;
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -36,7 +40,11 @@ html {
     font-family: 'Raleway', sans-serif;
 }
 
+
 .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
     display: flex;
     flex: 1;
     padding: 10px;
@@ -230,6 +238,7 @@ a {
     flex: 1;
     max-width: 250px;
     max-height: 150px;
+    overflow: hidden;
     min-width: 250px;
     min-height: 150px;
     padding: 10px;
@@ -241,7 +250,7 @@ a {
     background-blend-mode: overlay;
     color: white;
     overflow: hidden;
-    font-size: 20px;
+    font-size: 15px;
     font-family: 'Raleway', sans-serif;
     animation-name: btn-out;
     animation-fill-mode: forwards;
@@ -254,6 +263,7 @@ a {
     align-content: flex-end;
     justify-content: flex-end;
     height: 90%;
+    font-size: 25px;
     justify-self: flex-end;
 }
 

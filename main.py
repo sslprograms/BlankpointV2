@@ -105,7 +105,7 @@ def removePresence(account):
     account['status'] = 'Offline'
 
 def removeJoinToken(token):
-    time.sleep(30)
+    time.sleep(1250)
     try:
         JOIN_TOKENS.remove(token)
     except:
@@ -789,6 +789,51 @@ def pingGame(gameId):
     return '', 404
 
 
+@app.route('/v2/settings/save', methods=['POST'])
+def saveSettings():
+
+    description_new = request.form.get('description')
+    username_new = request.form.get('username').lower()
+
+    
+    for character in username_new:
+
+        if ALLOWED.count(character) < 1:
+
+            return jsonify({'message':"Characters and numbers are only allowed! (Username)"}), 400
+
+    for account in accounts:
+
+        if account['token'] == request.cookies.get('token'):
+
+            if checkCSRF(request.headers.get('x-csrf-token')) == True:
+                
+                if len(username_new) < 3 or len(username_new) > 20:
+                    return jsonify({'message':"Username must be between 3-20 characters!"}),400
+
+
+                if username_new == None:
+
+                    return jsonify({'message':"You need to provide a username to create an account!"}),400
+
+                if username_new != account['username']:
+                    for account_check in accounts:
+                        if account_check['username'] == username_new:
+                            return jsonify({'message':"Sorry, this username is already taken!"}),400
+                    
+                    account['username'] = username_new
+
+
+            if len(description_new) > 500:
+                return jsonify({'message':"Keep your description under 500 Characters!"}),400
+
+            account['description'] = description_new
+
+            return jsonify({'message':'Account Settings Saved!'}), 200
+    
+
+    return jsonify({'message':'Unauthenticated'}), 400
+    
 
 @app.route('/v2/logout')
 def logoutLink():

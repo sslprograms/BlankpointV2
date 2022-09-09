@@ -93,6 +93,23 @@ function favorite(id) {
 }
 
 
+function save() {
+    var xml = new XMLHttpRequest();
+    var data = new FormData()
+    xml.open('POST','/v2/settings/save')
+    xml.setRequestHeader("x-csrf-token", solveChallenge());
+    data.append('description', document.getElementById("description").value)
+    data.append('username', document.getElementById('username').value)
+    xml.send(data);
+
+    xml.onload = function() {
+        if (xml.status == 200) {
+            
+        }
+    }
+}
+
+
 function changePFP() {
     const client = filestack.init("Ay7PCSx4eTcGqJmNPsYFQz");
 

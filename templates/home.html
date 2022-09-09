@@ -20,6 +20,7 @@
         <script>sessionStorage.setItem('b', '{{ b }}')</script>
         <script>presence()</script>
         <script data-cfasync="false" src="//d2sp5g360gsxjh.cloudfront.net/?ggpsd=966189"></script>
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'>
     </head>
     <body class="background">
         <div class="warning">
@@ -29,6 +30,7 @@
         <div class="navbar">
 
             <div class="logo">
+
                 <img onclick="window.location.replace('/')" style="cursor:pointer; max-width: 50px; border-radius: 10px;" src="/static/blankpointV2.jpg" alt="">
             </div>
 
@@ -49,6 +51,7 @@
                     
                 </div>
                 <img onclick="changePFP()" class="pfp" style="object-fit: cover; clip-path: circle(50%); max-width: 150px; min-width: 150px; max-height: 150px; min-height: 150px;" src="{{ client['pfp'] }}" alt="">
+
                 <div class="details">
                     <h1>Welcome back, @{{client['username']}}!</h1>
                     <p>" {{ client['description'] }} "</p>
@@ -152,6 +155,6 @@
 
     </body>
 </html>
-<nav class="footer">
+<!-- <nav class="footer">
     <p>© 2022 All Rights are Owned by Blankpoint!</p>
-</nav>
+</nav> -->

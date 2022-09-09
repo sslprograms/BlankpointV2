@@ -50,8 +50,11 @@ html {
 }
 
 .navbar {
+    position: sticky;
+    top: 0;
     display: flex;
     flex: 1;
+    z-index: 10;
     padding: 10px;
     background-color: rgb(45, 45, 45);
     background-image: linear-gradient( 112.1deg,  rgba(32,38,57,1) 11.4%, rgba(63,76,119,1) 70.2% );
@@ -59,6 +62,7 @@ html {
     background-size: cover;
     background-blend-mode: overlay;
 }
+
 
 
 .logo {
@@ -196,10 +200,10 @@ a {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    overflow: hidden;
     flex: 1;
     max-width: 250px;
     max-height: 150px;
+    overflow: hidden;
     min-width: 250px;
     min-height: 150px;
     padding: 10px;
@@ -210,7 +214,8 @@ a {
     background-size: cover;
     background-blend-mode: overlay;
     color: white;
-    font-size: 20px;
+    overflow: hidden;
+    font-size: 15px;
     font-family: 'Raleway', sans-serif;
     animation-name: btn-out;
     animation-fill-mode: forwards;
@@ -223,6 +228,7 @@ a {
     align-content: flex-end;
     justify-content: flex-end;
     height: 90%;
+    font-size: 25px;
     justify-self: flex-end;
 }
 

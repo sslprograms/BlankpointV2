@@ -53,23 +53,42 @@
                 <h2>Account Settings</h2>
                 
                 <div class="info">
-                    <div>
+                    <div class="info-pt1">
+                        <img onclick="changePFP()" class="pfp" style="object-fit: cover; clip-path: circle(50%); max-width: 150px; min-width: 150px; max-height: 150px; min-height: 150px;" src="{{ account['pfp'] }}" alt="">
                         <textarea id="description" >{{ account['description'] }}</textarea>
                     </div>
-                    <img onclick="changePFP()" class="pfp" style="object-fit: cover; clip-path: cir
-                    cle(50%); max-width: 150px; min-width: 150px; max-height: 150px; min-height: 150px;" src="{{ account['pfp'] }}" alt="">
                     <input class="inp" id="username" type="text" value="{{ account['username'] }}">
                     <p>Sadly, you cannot change your password in the settings but you can contact support and get a password change!</p>
-                    <button class="btn">Save</button>
+                    <button onclick="save()" class="btn">Save</button>
                 </div>
 
             </div>
 
         </div>
-
+        <div class="suggested-contain">
+            <h2>Suggested G@mes</h2>
+            <div class="suggested-games">
+                {% for x in suggested %}
+                
+                    <div style="background-image: url({{ x['img'] }});" class="game-div">
+                        <h2>{{ x['name'] }}</h2>
+                        <p>{{ x['players']|length }} Playing</p>
+                        <div class="game-btns">
+                            <i name="gameIdfav_{{ x['id'] }}" onclick="favorite({{ x['id'] }})" id="fav" class="fi fi-rr-star"></i>
+                            <script>checkIfFavorited('{{ x['id'] }}')</script>
+                        </div>
+                        <div class="playc">
+                            <button onclick="playGame('{{ x['id'] }}')" class="btn">Play</button>
+                        </div>
+                        
+                    </div>
+                
+                {% endfor %}
+            </div>            
+        </div>
 
     </body>
 </html>
-<nav class="footer">
+<!-- <nav class="footer">
     <p>© 2022 All Rights are Owned by Blankpoint!</p>
-</nav>
+</nav> -->
