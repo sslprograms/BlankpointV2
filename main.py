@@ -338,31 +338,31 @@ def discoverPage():
 
     return redirect(url_for('indexPage')), 302
     
-@app.route('/p/<userId>/profile')
-def profilePage(userId):
-    for account in accounts:
-        if account['token'] == request.cookies.get('token'):
+# @app.route('/p/<userId>/profile')
+# def profilePage(userId):
+#     for account in accounts:
+#         if account['token'] == request.cookies.get('token'):
 
-            csrf = GENERATE_CSRF_TOKEN()
+#             csrf = GENERATE_CSRF_TOKEN()
 
-            mc = {
-                'csrf':csrf['token'],
-                'a':csrf['a'],
-                'b':csrf['b']
-            }
+#             mc = {
+#                 'csrf':csrf['token'],
+#                 'a':csrf['a'],
+#                 'b':csrf['b']
+#             }
 
-            suggested = []
-            for x in range(25):
-                suggested.append(random.choice(games))
+#             suggested = []
+#             for x in range(25):
+#                 suggested.append(random.choice(games))
 
 
-            for user in accounts:
-                if user['userId'] == int(userId): 
-                    userFavorites = getFavorites(user)
+#             for user in accounts:
+#                 if user['userId'] == int(userId): 
+#                     userFavorites = getFavorites(user)
 
-                    return render_template('profile.html', userFavorites=userFavorites, user=user, csrf=mc['csrf'], account=account, suggested=suggested, a=mc['a'], b=mc['b']), 200
+#                     return render_template('profile.html', userFavorites=userFavorites, user=user, csrf=mc['csrf'], account=account, suggested=suggested, a=mc['a'], b=mc['b']), 200
 
-    return redirect(url_for('indexPage')), 302
+    # return redirect(url_for('indexPage')), 302
 
 @app.route('/c', methods=['GET'])
 def cPage():
