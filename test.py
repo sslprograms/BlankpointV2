@@ -1,4 +1,4 @@
-api = 'https://gamemonetize.com/rssfeed.php?format=json&category=All&type=html5&popularity=bestgames&company=All&amount=250'
+#api = 'https://gamemonetize.com/rssfeed.php?format=json&category=All&type=html5&popularity=bestgames&company=All&amount=250'
 
 
 import requests

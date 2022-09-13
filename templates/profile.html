@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>/Blankpoint/discover</title>
+        <link rel="stylesheet" href="/static/profile.css">
+        <link rel="shortcut icon" href="/static/blankpointV2.jpg" type="image/x-icon">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+        <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+        <script>sessionStorage.setItem('x-csrf-token', '{{ csrf }}')</script>
+        <script>sessionStorage.setItem('a', '{{ a }}')</script>
+        <script>sessionStorage.setItem('b', '{{ b }}')</script>
+        <script>presence()</script>
+        <script data-cfasync="false" src="//d2sp5g360gsxjh.cloudfront.net/?ggpsd=966189"></script>
+    </head>
+    <body class="background">
+        <div class="warning">
+            <p>Blankpoint V2 is currently still being worked on, Join the <a style="font-weight: bold; text-decoration: underline; text-underline-offset: 2px;" href="https://discord.gg/nNdHKdH33J">DISCORD</a> to stay updated :(</p>
+        </div>
+        
+
+        <div class="navbar">
+
+            <div class="logo">
+                <img onclick="window.location.replace('/')" style="cursor:pointer; max-width: 50px; border-radius: 10px;" src="/static/blankpointV2.jpg" alt="">
+            </div>
+
+            <div class="nav-links">
+                <!-- <a href="/home">home</a> -->
+                <a href="/discover">discover</a>
+                <!-- <a href="/profile">profile</a>
+                <a href="/messages">messages</a> -->
+                <a href="/v2/logout">logout</a>
+            </div>
+            <div class="user">
+                <p>@{{ account['username'] }}</p>
+            </div>
+        </div>
+
+        <div class="profile-container">
+
+            <div class="user-card">
+                <div class="top-card">
+                    <img class="pfp" style="object-fit: cover; clip-path: circle(50%); max-width: 150px; min-width: 150px; max-height: 150px; min-height: 150px;" src="{{ user['pfp'] }}" alt="">
+                    <div class="top-info">
+                        <h1>@{{ user['username'] }}</h1>
+                        <p>{{ user['description'] }}</p>
+                        <div class="info-buttons">
+                            <button class="btn">Add Friend</button>
+                            <button class="btn">Follow</button>
+                            <button class="btn">Message</button>
+                            <button class="btn">Report</button>
+                        </div>
+
+
+                        <div class="stats">
+                            {% if user['admin'] == True %}
+                                <i class="fi fi-sr-badge-check"> Admin</i>
+                            
+                            {% else %}
+
+                                <i class="fi fi-sr-user"> Player</i>
+                            
+                            {% endif %}
+                            <p>{{ user['friends']|length }} Friends</p>
+                            <p>{{ user['followers']|length }} Followers</p>
+                            <p>{{ user['badges']|length }} Badges</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="favorites">
+
+                    <h2>Favorite Games</h2>
+
+                    <div style="background-color: black; padding: 10px; border-radius: 20px;" class="suggested-games">
+                        {% for x in userFavorites %}
+                            <div style="background-image: url({{ x['img'] }});" class="game-div">
+                                <h2>{{ x['name'] }}</h2>
+                                <p>{{ x['players']|length }} Playing</p>
+                                <div class="game-btns">
+                                    <i name="gameIdfav_{{ x['id'] }}" onclick="favorite({{ x['id'] }})" id="fav" class="fi fi-rr-star"></i>
+                                    <script>checkIfFavorited('{{ x['id'] }}')</script>
+                                </div>
+                                <div class="playc">
+                                    <button onclick="playGame('{{ x['id'] }}')" class="btn">Play</button>
+                                </div>
+                                
+                            </div>  
+                        {% endfor %}
+                        
+
+                        {% if userFavorites|length == 0 %}
+                            <p style="font-size: 20px; text-align:center; align-content: center; justify-content:center;">This user currently has no favorited games!</p>
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+
+                <div class="comments">
+                    <h2>Comments</h2>
+
+                    <div class="place-comment">
+                        <textarea placeholder="Type here to comment on this profile!" id="comment-space" ></textarea>
+                        <button class="btn">Comment</button>
+
+                    </div>
+
+
+                </div>
+
+                <div class="profile-comments">
+                    {% for comment in user['profile_comments'] %}
+
+                        <div class="comment">
+                            <h3>@{{ comment['from'] }}</h3>
+                            <p>{{ comment['comment'] }}</p>
+                        </div>
+
+                    {% endfor %}
+                </div>
+
+            </div>
+
+        </div>
+
+        </div>
+        <div class="suggested-contain">
+            <h2>Suggested G@mes</h2>
+            <div class="suggested-games">
+                {% for x in suggested %}
+                
+                    <div style="background-image: url({{ x['img'] }});" class="game-div">
+                        <h2>{{ x['name'] }}</h2>
+                        <p>{{ x['players']|length }} Playing</p>
+                        <div class="game-btns">
+                            <i name="gameIdfav_{{ x['id'] }}" onclick="favorite({{ x['id'] }})" id="fav" class="fi fi-rr-star"></i>
+                            <script>checkIfFavorited('{{ x['id'] }}')</script>
+                        </div>
+                        <div class="playc">
+                            <button onclick="playGame('{{ x['id'] }}')" class="btn">Play</button>
+                        </div>
+                        
+                    </div>
+                
+                {% endfor %}
+            </div>            
+        </div>
+
+    </body>
+</html>
+<!-- <nav class="footer">
+    <p>© 2022 All Rights are Owned by Blankpoint!</p>
+</nav> -->

@@ -56,7 +56,7 @@
                     <h1>Welcome back, @{{client['username']}}!</h1>
                     <p>" {{ client['description'] }} "</p>
                     <div class="self-buttons">
-                        <button class="btn">My Profile</button>
+                        <button onclick="window.location.replace('/p/{{ client['userId'] }}/profile')" class="btn">My Profile</button>
                         <button onclick="window.location.replace('/settings')" class="btn">Settings</button>
                     </div>
                     

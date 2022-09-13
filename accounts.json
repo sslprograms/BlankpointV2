@@ -2,7 +2,7 @@
    {
       "username": "ssl",
       "password": "Jakekielb06",
-      "token": "hTVl6Z23tahkt.2K6euH7qCz4YSoN",
+      "token": "ycuni6fjPHZm1v1.k4ML8FwxNmJ1hFu",
       "friends": [],
       "friend_requests": [],
       "followers": [],
@@ -11,33 +11,32 @@
       "requests_sent": [],
       "favorites": [
          {
-            "id": "1"
+            "id": "246"
          },
          {
-            "id": "162"
+            "id": "142"
+         },
+         {
+            "id": "122"
+         },
+         {
+            "id": "209"
          }
       ],
       "badges": [],
-      "recent_games": [
+      "recent_games": [],
+      "profile_comments": [
          {
-            "id": "259"
-         },
-         {
-            "id": "171"
-         },
-         {
-            "id": "18"
-         },
-         {
-            "id": "1"
+            "from":"JohnDoe",
+            "comment":"This is a test comment from the owner of the site!"
          }
       ],
-      "admin": true,
+      "admin": false,
       "addr": "127.0.0.1",
-      "pfp": "https://cdn.filestackcontent.com/cjOfKzziQ8D3MMi4DKv6",
+      "pfp": "/static/unkown.jpg",
       "status": "Online",
       "last_seen": "Dashboard",
-      "description": "Developer and Owner of Blankpoint!",
+      "description": "This is your description, you can change this easily in your settings or profile tab!",
       "premium": false,
       "verified_not_robot": false,
       "email": "",

@@ -14,17 +14,18 @@
     display: flex;
     flex: 1;
     padding: 15%;
-    background-color: rgb(41, 41, 41);
+    background-color: rgb(21, 21, 21);
     flex-direction: column;
     color: white;
     font-family: 'Raleway', sans-serif;
-    font-size: 25px;
+    font-size: 30px;
     gap: 3px;
     background-image: url(/static/V2top.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-blend-mode: overlay;
+    text-shadow: 1px 1px 10px white;
 }
 
 .login-element {
@@ -171,21 +172,22 @@
 .staff {
     display: flex;
     flex: 1;
-    gap: 15px;
+    gap: 35px;
     flex-wrap: wrap;
     /* background-color: rgb(57, 57, 57); */
-    border-width: 2px;
+    /* border-width: 2px;
     border-color: white;
-    border-style: solid;
+    border-style: solid; */
     padding: 10px;
     /* border-color: white;
     border-width: thin;
     border-style: solid; */
     /* align-content: center;
     justify-content: center; */
-    background-image: linear-gradient( 112.1deg,  rgba(32,38,57,1) 11.4%, rgba(63,76,119,1) 70.2% );
+    /* background-image: linear-gradient( 112.1deg,  rgba(32,38,57,1) 11.4%, rgba(63,76,119,1) 70.2% );
     background-blend-mode: overlay;
-    border-radius: 25px;
+    border-radius: 25px; */
+    /* background-color: rgb(20, 20, 20); */
 }
 
 .pfp {
@@ -208,6 +210,7 @@
     min-width: 250px;
     border-radius: 25px;
     flex: 1;
+    /* background-color: rgb(164, 164, 164); */
     flex-direction: column;
     align-items: center;
     align-content: center;
@@ -218,7 +221,9 @@
     border-style: solid; */
     gap: 5px;
     padding: 10px;
-    box-shadow: 1px 1px 10px 1px rgb(0, 0, 0);
+    background-image: linear-gradient( 112.1deg,  rgba(32,38,57,1) 11.4%, rgba(63,76,119,1) 70.2% );
+    box-shadow: 1px 1px 20px 1px rgb(67, 67, 67);
+    background-blend-mode: overlay;
 }
 
 .about {
