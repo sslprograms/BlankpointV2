@@ -215,6 +215,10 @@ def GENERATE_CSRF_TOKEN():
 def ads_txt():
     return send_from_directory('static', 'ads.txt')
 
+@app.route('/Ads.txt')
+def ads_txt1():
+    return send_from_directory('static', 'ads.txt')
+
 @app.route('/')
 def indexPage():
 
