@@ -21,6 +21,7 @@
         <script>presence()</script>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7922788932188394"crossorigin="anonymous"></script>
         <script data-cfasync="false" src="//d2sp5g360gsxjh.cloudfront.net/?ggpsd=966189"></script>
+        <script src="/static/profile.js"></script>
     </head>
     <body class="background">
         <div class="warning">
@@ -55,10 +56,10 @@
                         <h1>@{{ user['username'] }}</h1>
                         <p>{{ user['description'] }}</p>
                         <div class="info-buttons">
-                            <button class="btn">Add Friend</button>
+                            <!-- <button class="btn">Add Friend</button>
                             <button class="btn">Follow</button>
                             <button class="btn">Message</button>
-                            <button class="btn">Report</button>
+                            <button class="btn">Report</button> -->
                         </div>
 
 
@@ -74,6 +75,7 @@
                             <p>{{ user['friends']|length }} Friends</p>
                             <p>{{ user['followers']|length }} Followers</p>
                             <p>{{ user['badges']|length }} Badges</p>
+        
                         </div>
 
                     </div>
@@ -114,17 +116,19 @@
 
                     <div class="place-comment">
                         <textarea placeholder="Type here to comment on this profile!" id="comment-space" ></textarea>
-                        <button class="btn">Comment</button>
-
+                        <button onclick="post_comment('{{ user['userId'] }}')" class="btn">Comment</button>
+                        <div class="errorEvent" id="error">
+                            <p>Sorry, try again later to perform this action!</p>
+                        </div>
                     </div>
 
 
                 </div>
 
                 <div class="profile-comments">
-                    {% for comment in user['profile_comments'] %}
+                    {% for comment in userComments %}
 
-                        <div class="comment">
+                        <div onclick="window.location.replace('/p/{{ comment['id'] }}/profile')" class="comment">
                             <h3>@{{ comment['from'] }}</h3>
                             <p>{{ comment['comment'] }}</p>
                         </div>

@@ -52,8 +52,21 @@
             <button class="btn1">logout</button>
         </div>
 
+        
+
         {% if popular|length != 0 %}
             <div class="suggested-contain">
+
+                {% if online|length != 0 %}
+                <div class="online-users">
+                    {% for user in online %}
+
+                    <img onclick="window.location.replace('/p/{{ user['userId'] }}/profile')" class="pfp" style="cursor: pointer; object-fit: cover; clip-path: circle(50%); max-width: 50px; min-width: 50px; max-height: 50px; min-height: 50px;" src="{{ user['pfp'] }}" alt="">
+
+                    {% endfor %}
+                </div>
+        {% endif %}
+
                 <h2>Popular</h2>
                 <div class="suggested-games">
                     {% for x in popular %}

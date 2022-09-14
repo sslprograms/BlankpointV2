@@ -146,6 +146,16 @@ a {
     }
 }
 
+.online-users {
+    display: flex;
+    flex: 1;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    background-color: rgb(23, 23, 23);
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+}
 
 .nav-links {
     display: flex;

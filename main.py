@@ -36,9 +36,10 @@ def save_database():
 
 
 ratelimit_index = {
-    'comment':1,
-    'signup':1,
-    'login':10
+    'comment':5,
+    'signup':10,
+    'login':100,
+    'profile_comment':15
 }
 
 def get_friend_from_id(player_id):
@@ -267,6 +268,12 @@ def discoverPage():
     def key_sort_popular(data):
         return len(data['players'])
 
+    random_online = []
+
+    for x in accounts:
+        if x['status'] == 'Online':
+            random_online.append(x)
+
     for account in accounts:
         if account['token'] == request.cookies.get('token'):
 
@@ -338,35 +345,47 @@ def discoverPage():
             
 
             
-            return render_template('discover.html', suggested=suggested, new_games=newgames, account=account, csrf=mc['csrf'], a=mc['a'], b=mc['b'], popular=popular, friends_playing=friends_games), 200
+            return render_template('discover.html', online=random_online,  suggested=suggested, new_games=newgames, account=account, csrf=mc['csrf'], a=mc['a'], b=mc['b'], popular=popular, friends_playing=friends_games), 200
 
     return redirect(url_for('indexPage')), 302
     
-# @app.route('/p/<userId>/profile')
-# def profilePage(userId):
-#     for account in accounts:
-#         if account['token'] == request.cookies.get('token'):
+@app.route('/p/<userId>/profile')
+def profilePage(userId):
+    for account in accounts:
+        if account['token'] == request.cookies.get('token'):
 
-#             csrf = GENERATE_CSRF_TOKEN()
+            csrf = GENERATE_CSRF_TOKEN()
 
-#             mc = {
-#                 'csrf':csrf['token'],
-#                 'a':csrf['a'],
-#                 'b':csrf['b']
-#             }
+            mc = {
+                'csrf':csrf['token'],
+                'a':csrf['a'],
+                'b':csrf['b']
+            }
 
-#             suggested = []
-#             for x in range(25):
-#                 suggested.append(random.choice(games))
+            suggested = []
+            for x in range(25):
+                suggested.append(random.choice(games))
 
+            userComments = []
 
-#             for user in accounts:
-#                 if user['userId'] == int(userId): 
-#                     userFavorites = getFavorites(user)
+            for user in accounts:
+                if user['userId'] == int(userId): 
+                    userFavorites = getFavorites(user)
 
-#                     return render_template('profile.html', userFavorites=userFavorites, user=user, csrf=mc['csrf'], account=account, suggested=suggested, a=mc['a'], b=mc['b']), 200
+                    for c in user['profile_comments']:
 
-    # return redirect(url_for('indexPage')), 302
+                        userComments.append(
+                            {
+                                'from':get_friend_from_id(c['from'])['username'],
+                                'comment':c['comment'],
+                                'id':c['from']
+                            }
+                        )
+                    userComments.reverse()
+
+                    return render_template('profile.html', userComments=userComments, userFavorites=userFavorites, user=user, csrf=mc['csrf'], account=account, suggested=suggested, a=mc['a'], b=mc['b']), 200
+
+    return redirect(url_for('indexPage')), 302
 
 @app.route('/c', methods=['GET'])
 def cPage():
@@ -831,6 +850,51 @@ def pingGame(gameId):
                             return mr
     return '', 404
 
+@app.route('/v2/profile-comment', methods=['POST'])
+def profile_comment():
+
+    comment = request.form.get('comment')
+    userId = request.form.get('userId')
+
+    s = CHECK_RATELIMIT(request.remote_addr, 'profile_comment')
+
+    if s!=False:
+        return jsonify({'message':"Sorry, try again later to perform this action!"}),429
+
+    for account in accounts:
+
+        if account['token'] == request.cookies.get('token'):
+
+            if checkCSRF(request.headers.get('x-csrf-token')) == True:
+
+                if len(comment) > 1000:
+                    return jsonify({'message':'Your comment is too long to place, please keep your comment under 1,000 Characters!'}), 400
+                
+                if len(comment) < 10:
+                    return jsonify({'message':'Your comment is too short!'}), 400
+
+                printable1 = []
+
+                for x in string.printable:
+                    printable1.append(x)
+
+                for letter in comment:
+                    if printable1.count(letter) >= 1:
+                        pass
+                    else:
+                        return jsonify({'message':''}), 400
+
+                for user in accounts:
+                    if user['userId'] == int(userId):
+                        user['profile_comments'].append(
+                            {
+                                'from':account['userId'],
+                                'comment':comment
+                            }
+                        )
+                    
+                    return jsonify({'message':'Comment has been successfully placed!'}), 200
+                
 
 @app.route('/v2/settings/save', methods=['POST'])
 def saveSettings():
