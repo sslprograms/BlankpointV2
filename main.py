@@ -893,7 +893,7 @@ def profile_comment():
                             }
                         )
                     
-                    return jsonify({'message':'Comment has been successfully placed!'}), 200
+                return jsonify({'message':'Comment has been successfully placed!'}), 200
                 
 
 @app.route('/v2/settings/save', methods=['POST'])
@@ -950,5 +950,5 @@ def logoutLink():
 
 
 
-# app.run(debug=False, host='0.0.0.0', port=80)
-app.run(debug=True)
+app.run(debug=False, host='0.0.0.0', port=80)
+#app.run(debug=True)
